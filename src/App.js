@@ -6,12 +6,12 @@ import Features from "./components/Features";
 import About from "./components/About";
 import FAQSection from "./components/FAQSection";
 import Contact from "./components/Contact";
-import Model from "./components/Model"; // Import the Modal
-import LoginForm from "./pages/LoginForm.js"; // Import the Login Form
-// import SignupForm from "./components/SignupForm"; // You'll create this
+
+import Model from "./components/Model"; 
+import LoginForm from "./components/LoginForm"; // ✅ Add this
+import Signup from "./components/Signup";       // ✅ Add this
 
 import "./App.css";
-import Signup from "./components/Signup.js";
 
 function App() {
   // State to manage which modal is open: null, 'login', or 'signup'

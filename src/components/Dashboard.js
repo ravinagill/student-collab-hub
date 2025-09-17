@@ -1,48 +1,25 @@
-import React, { useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import React, { createContext, useState } from "react";
 
-const Dashboard = () => {
-  const { user, logout } = useContext(AuthContext);
-  const navigate = useNavigate();
+export const AuthContext = createContext();
 
-  const handleLogout = () => {
-    logout();
-    navigate("/login");
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+
+  // Example login function (call this from your LoginForm)
+  const login = (userData) => {
+    setUser(userData);
+    // You can also save user data in localStorage if you want persistence
+    // localStorage.setItem("user", JSON.stringify(userData));
   };
 
-  console.log(user);
+  const logout = () => {
+    setUser(null);
+    // localStorage.removeItem("user");
+  };
 
   return (
-    <div style={styles.container}>
-      <h2>Welcome, {user?.name} 🎉</h2>
-      <p>Email: {user?.email}</p>
-      <button style={styles.button} onClick={handleLogout}>
-        Logout
-      </button>
-    </div>
+    <AuthContext.Provider value={{ user, login, logout }}>
+      {children}
+    </AuthContext.Provider>
   );
 };
-
-const styles = {
-  container: {
-    maxWidth: "500px",
-    margin: "80px auto",
-    padding: "30px",
-    border: "1px solid #ccc",
-    borderRadius: "8px",
-    textAlign: "center",
-  },
-  button: {
-    padding: "10px 20px",
-    fontSize: "16px",
-    borderRadius: "4px",
-    border: "none",
-    backgroundColor: "#dc3545",
-    color: "#fff",
-    cursor: "pointer",
-    marginTop: "15px",
-  },
-};
-
-export default Dashboard;

@@ -1,51 +1,24 @@
-import React, { createContext, useState, useEffect } from "react";
+// src/context/AuthContext.js
+import React, { createContext, useState } from "react";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) setUser(JSON.parse(storedUser));
-  }, []);
-
   const login = (email, password) => {
-    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
-    const existingUser = storedUsers.find(
-      (u) => u.email === email && u.password === password
-    );
-    console.log(existingUser);
-    if (existingUser) {
-      console.log("new user", existingUser);
-      setUser(existingUser);
-      localStorage.setItem("user", JSON.stringify(existingUser));
+    // Fake authentication logic (you can replace this later with API)
+    if (email && password) {
+      setUser({ name: "Ravina", email });
       return true;
     }
     return false;
   };
 
-  const signup = (name, email, password) => {
-    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
-    const userExists = storedUsers.find((u) => u.email === email);
-    console.log(storedUsers);
-    if (userExists) return false;
-
-    const newUser = { name, email, password };
-    storedUsers.push(newUser);
-    localStorage.setItem("users", JSON.stringify(storedUsers));
-    setUser(newUser);
-    localStorage.setItem("user", JSON.stringify(newUser));
-    return true;
-  };
-
-  const logout = () => {
-    setUser(null);
-    localStorage.removeItem("user");
-  };
+  const logout = () => setUser(null);
 
   return (
-    <AuthContext.Provider value={{ user, login, signup, logout }}>
+    <AuthContext.Provider value={{ user, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

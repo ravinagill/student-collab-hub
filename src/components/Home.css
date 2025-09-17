@@ -35,10 +35,10 @@
   z-index: 2;
   position: relative;
   margin-top: -25%;
-  
 }
 
-.left-content h1 {
+/* Animated Title Styles */
+.animated-title {
   font-size: 4.5rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
@@ -47,6 +47,46 @@
   font-family: 'Times New Roman', Times, serif;
 }
 
+.animated-title .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(50px) rotateX(90deg);
+  animation: splitTextAnimation 0.8s ease-out forwards;
+}
+
+/* Split Text Animation Keyframes */
+@keyframes splitTextAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) rotateX(90deg);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(-10px) rotateX(45deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+
+/* Alternative animation - uncomment to use */
+/*
+@keyframes splitTextAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.8);
+  }
+  60% {
+    transform: translateY(-5px) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+*/
+
 .left-content p {
   font-size: 2rem;
   margin-bottom: 2.5rem;
@@ -54,6 +94,7 @@
   line-height: 1.6;
   font-family: 'Times New Roman', Times, serif;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  animation: fadeInUp 1s ease-out 1.5s both;
 }
 
 .get-started-btn {
@@ -68,6 +109,7 @@
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   font-family: 'Times New Roman', Times, serif;
+  animation: fadeInUp 1s ease-out 2s both;
 }
 
 .get-started-btn:hover {
@@ -77,20 +119,32 @@
   color: #8b0000;
 }
 
+/* Fade in animation for paragraph and button */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .main-content {
     background-attachment: scroll; /* Better performance on mobile */
   }
-
+  
   .content-wrapper {
     padding: 3rem 1rem;
   }
-
-  .left-content h1 {
+  
+  .animated-title {
     font-size: 2.5rem;
   }
-
+  
   .left-content p {
     font-size: 1.2rem;
   }
@@ -101,21 +155,20 @@
     padding: 1rem;
   }
   
-  .left-content h1 {
+  .animated-title {
     font-size: 3rem;
   }
-
+  
   .left-content p {
     font-size: 1rem;
   }
-
+  
   .get-started-btn {
     padding: 12px 25px;
     font-size: 1rem;
   }
 }
 
-.welcome{
+.welcome {
   font-size: xx-small;
 }
-
