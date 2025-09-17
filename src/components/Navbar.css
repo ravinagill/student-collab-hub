@@ -1,0 +1,88 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: black;
+  padding: 12px 40px;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  font-size: x-large;
+}
+
+.logo {
+  font-size: 35px;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 35px;
+  margin: 0;
+  padding: 0;
+  
+}
+
+.nav-links li {
+  margin: 0;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 25px;
+  padding: 5px 50px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #9a031e;
+}
+
+.auth-links {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.welcome-message {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.nav-button {
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  min-width: 80px;
+}
+
+.nav-button:hover {
+  background-color: white;
+  color: black;
+}
+
+.nav-button.signup {
+  background-color: #9a031e;;
+  border: 2px solid #9a031e;;
+  color: white;
+}
+
+.nav-button.signup:hover {
+  background-color: #9a031e;
+  border-color: white;;
+  color: white;
+}
