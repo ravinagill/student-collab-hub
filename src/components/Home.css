@@ -1,58 +1,121 @@
-.home {
-  position: relative;
-  height: 100vh;
+/* Home Component Styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Main Content with Background Image */
+.main-content {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: 
+    linear-gradient(135deg, rgba(220, 20, 60, 0.4) 0%, rgba(139, 0, 0, 0.4) 100%),
+    url('C:\Users\Lenovo\Downloads\Link-lab2-main (1)\Link-lab2-main\src\components\colleagues-studying-together-exam.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding-top: 80px; /* Account for fixed navbar */
+}
+
+.content-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: white;
-  overflow: hidden;
-  background-color: transparent; /* remove solid red */
-}
-
-/* Light rays animation as background */
-.custom-rays {
-  position: absolute;
-  top: 0; /* cover whole section */
-  left: 0;
   width: 100%;
-  height: 100%;
-  z-index: 1;
-  pointer-events: none;
-  background-color: #9a031e; /* put red here, behind rays */
+  padding: 4rem 2rem;
 }
 
+.left-content {
+  color: white;
+  max-width: 800px;
+  z-index: 2;
+  position: relative;
+  margin-top: -25%;
+  
+}
 
-
-/* Content styles */
-.in {
-  font-size: 60px;
+.left-content h1 {
+  font-size: 4.5rem;
   font-weight: bold;
-  position: relative;
-  z-index: 2;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+  font-family: 'Times New Roman', Times, serif;
 }
 
-.pa {
-  font-size: 30px;
-  position: relative;
-  z-index: 2;
+.left-content p {
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.9;
+  line-height: 1.6;
+  font-family: 'Times New Roman', Times, serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
-.btn {
-  margin-top: 20px;
-  padding: 16px 20px;
+.get-started-btn {
   background: white;
-  color: black;
+  color: #dc143c;
+  padding: 15px 35px;
   border: none;
-  cursor: pointer;
-  font-size: 16px;
-  border-radius: 6px;
+  border-radius: 30px;
+  font-size: 1.2rem;
   font-weight: bold;
-  position: relative;
-  z-index: 2;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  font-family: 'Times New Roman', Times, serif;
 }
 
-.btn:hover {
-  background: #ddd;
+.get-started-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  background: #f8f9fa;
+  color: #8b0000;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-content {
+    background-attachment: scroll; /* Better performance on mobile */
+  }
+
+  .content-wrapper {
+    padding: 3rem 1rem;
+  }
+
+  .left-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .left-content p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .left-content {
+    padding: 1rem;
+  }
+  
+  .left-content h1 {
+    font-size: 3rem;
+  }
+
+  .left-content p {
+    font-size: 1rem;
+  }
+
+  .get-started-btn {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+}
+
+.welcome{
+  font-size: xx-small;
+}
+
