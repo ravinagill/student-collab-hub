@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@fontsource/oswald": "^5.2.8",
+    "lucide-react": "^0.544.0",
     "ogl": "^1.0.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
